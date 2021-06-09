@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 // react bootstrap
 import Container from "react-bootstrap/Container";
@@ -10,20 +11,19 @@ import LoginForm from "./login.form";
 import DefaultAppShell from "./../layout/default.shell";
 
 // login hook
-import useLogin from "./login.hook";
+import { useAuth } from "./login.hook";
 
 const LoginPage = () => {
-  const { loginUser } = useLogin();
-
-  useEffect(() => {
-    onLogin({ key: "123" });
-  });
+  const { loginUser } = useAuth();
+  let history = useHistory();
+  let location = useLocation();
 
   // handler for login user
   const onLogin = async (data) => {
     try {
       const response = await loginUser(data);
-      console.log(response);
+      let { from } = location.state || { from: { pathname: "/" } };
+      history.replace(from);
     } catch (error) {
       console.log(error.message);
     }

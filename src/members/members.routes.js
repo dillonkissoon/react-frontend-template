@@ -6,6 +6,7 @@ const MemberRoutes = [
   {
     path: [`${ApplicationPath}`],
     component: AccountOverview,
+    isAuthed: true,
   },
 ];
 

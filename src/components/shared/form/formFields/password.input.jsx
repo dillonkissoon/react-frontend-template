@@ -15,9 +15,7 @@ const PasswordInput = ({ name, id, label, ...passwordInputProps }) => {
         type="password"
         id={id}
         label={label}
-        register={register(name, {
-          validate: (value) => value === "testing" || "invalid password",
-        })}
+        register={register(name, { required: true })}
         formState={formState}
         {...passwordInputProps}
       />

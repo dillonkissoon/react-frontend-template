@@ -6,7 +6,6 @@ const AuthRoutes = [
   {
     path: [`${ApplicationPath}`],
     component: LoginPage,
-    isAuthed: true,
   },
 ];
 

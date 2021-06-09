@@ -1,9 +1,12 @@
 import AppRouter from "./app.router";
+import { ProvideAuth } from "./auth/login.hook";
 
 function App() {
   return (
     <>
-      <AppRouter />
+      <ProvideAuth>
+        <AppRouter />
+      </ProvideAuth>
     </>
   );
 }

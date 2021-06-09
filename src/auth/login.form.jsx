@@ -20,8 +20,9 @@ const LoginForm = ({ handleLogin }) => {
   const methods = useForm({
     ...defaultFormSettings,
     defaultValues: {
-      email: "dillon@testing.com",
+      email: "dillon@test.com",
       password: "testing",
+      passwordConfirm: "",
     },
   });
 
@@ -41,6 +42,8 @@ const LoginForm = ({ handleLogin }) => {
                 placeholder="example@example.com"
               />
             </Col>
+          </Form.Row>
+          <Form.Row>
             <Col md>
               <PasswordInput
                 id="login-form-password-input"
@@ -49,6 +52,14 @@ const LoginForm = ({ handleLogin }) => {
                 placeholder="********"
               />
             </Col>
+            {/* <Col md>
+              <PasswordInput
+                id="login-form-password-confirm-input"
+                label="Re-enter Password"
+                name="passwordConfirm"
+                placeholder="********"
+              />
+            </Col> */}
           </Form.Row>
           <Form.Row>
             <Col>
